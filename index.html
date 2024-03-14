@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button{
+        width: auto;
+        height: auto;
+        font-size: 20px;
+        padding: 10px;
+        margin: 10px;
+        background-color: lightgray;
+        color:mediumseagreen;
+        border: 3px solid  #827e28;
+        border-radius: 20px;
+        font-weight: bold;
+    }
+    #ded{
+        font-size:20px ;
+        color: mediumpurple;
+        font-weight: bold;
+    }
+    button:hover {
+        background-color: lavenderblush;
+        color:rgb(122, 97, 60);
+        font-size: 23px;
+        
+    }
+    img{
+        height: 250px;
+        width: auto;
+    }
+    body{
+        background-color: black;
+    }
+</style>
+<body>
+<img id="dad"  src="https://seance.ru/wp-content/uploads/2020/06/mocking-spongebob-1556133078.jpg" >    
+<div id="ded" ></div>
+<button onclick="kot(0)"></button>
+<button onclick="kot(1)"></button>
+
+<script>
+let olo = ['7x.jpg','6x.jpg','5x.jpg','4x.jpg','3x.jpg','2x.jpg','1x.jpg']  
+let indMyolo = 0;
+
+ let vopros = [
+    { 
+        voprosik:'вопрос 1: какого цвета солнце?',
+        otvetik:['желтого', 'белого'],
+        pravilnyOtvet: 1 
+    },
+    {
+    voprosik: 'вопрос 2: кто проживает на дне океана?',
+    otvetik: ['спанч боб ' , 'кораллы'],
+    pravilnyOtvet:0
+
+    },
+    {
+        voprosik: 'вопрос 3: как рашифровывается HTML',
+    otvetik: ['HyperText Markup Language ' , 'Hyper Text Model Lonk'],
+    pravilnyOtvet:0
+
+    }
+    ,
+    {
+        voprosik : 'вопрос 4: как рашифровывается CSS?',
+        otvetik : ['Class Style Sonk','Cascading Style Sheets' ],
+        pravilnyOtvet : 1
+
+    }
+    ,
+    {
+        voprosik : 'вопрос 5 : какого цвета жопа бабуина?',
+        otvetik : ['красного','бежевого'],
+        pravilnyOtvet : 0
+    }
+    ,
+    {
+        voprosik: 'вопрос 6: HTML  это язык прогромирование? ',
+        otvetik: ['нет','да'],
+        pravilnyOtvet : 0
+    }
+    ,
+   {    voprosik: 'вопрос 7 : CSS это язык програмирование?',
+        otvetik: ['да','нет'],
+        pravilnyOtvet :1
+    }
+ ]
+ 
+let ghgh = 0 
+function dog() {
+    document.getElementById('ded').innerHTML = vopros[ghgh].voprosik
+    let buttons = document.querySelectorAll('button')
+   vopros[ghgh].otvetik.forEach((otvet,index) => {
+    buttons [index].innerText = otvet 
+   })
+}
+
+function kot(otveti) {
+    if (otveti === vopros[ghgh].pravilnyOtvet) {
+        indMyolo++
+        if (indMyolo >= olo.length) {
+            indMyolo = 0
+        }
+       document.getElementById('dad').src = olo [indMyolo] 
+
+    }
+    ghgh++
+    if (ghgh < vopros.length) {
+        dog()
+    }
+    else {
+        document.getElementById('ded').innerHTML = 'вы победили! вот ваш приз - № это ваш приз досведание надеюсь мы больше не когда не увидемся)'
+        document.querySelectorAll('button').forEach(button => button.style.display='none')
+    }
+
+} 
+
+dog()
+</script>
+
+</body>
+</html>
